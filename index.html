@@ -1,5 +1,11 @@
 ---
 layout: default
-title: gao
+title:GAOGUQI BLOG
 ---
-<h2>{{ page.title }} </h2>
+<h2>{{page.title}}</h2>
+<p>NEW POST</p>
+<ul>
+{% for post in site.posts %}
+<li>{{post.date | date_to_string}}<a href = "{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
+{% endfor %}
+</ul>
