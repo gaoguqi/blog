@@ -1,1 +1,5 @@
-baseurl:/
+auto: true
+pygments: true
+permalink: /:title
+title: www.gaoguqi.com
+url: http://www.gaoguqi.com
