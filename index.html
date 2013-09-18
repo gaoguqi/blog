@@ -1,11 +1,11 @@
 ---
 layout: default
-title: GAOGUQI's BLOG
+title: GAOGUQIs BLOG
 ---
 <h2>{{ page.title }}</h2>
 <p>NEW POST</p>
 <ul>
 {% for post in site.posts %}
-<li>{{post.date | date_to_string}}<a href = "{{ post.url }}">{{post.title}}</a></li>
+<li>{{post.date | date_to_string}}<a href = "{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
 {% endfor %}
 </ul>
