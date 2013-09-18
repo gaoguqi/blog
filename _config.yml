@@ -1,5 +1,5 @@
 auto: true
 pygments: true
-permalink: /:title
-title: www.gaoguqi.com
+permalink: pretty
+
 url: http://www.gaoguqi.com
