@@ -1,18 +1,28 @@
 body {
-  color: #fb5;
-  background-color: #334;
+  /* color: #fb5; #334*/
+  color:#445;
+  background-color: #CACFD8;
 }
+a:link {
+    color:#445;
+  background-color: #eAeFe8;
+}
+/*用来显示连接的颜色 
 a:link {
   color: #445;
   background-color: #eb6;
-}
+} */
 a:visited {
   color: #345;
-  background-color: #eb6;
+  background-color: #d4f2e8;
 }
-a:hover {
+/* a:hover {
   color: #667;
   background-color: #fb5;
+} */
+a:hover {
+  color: #445;
+  background-color: #d4f2e8;
 }
 a:active {
   color: #778;
@@ -29,9 +39,10 @@ header nav {
   border-color: #667;
 }
 article {
-  color: #223;
-  background-color: #edc;
-  border-color: #667;
+  /*color: #223;
+  background-color: #CACFD8;
+  #edc;*/
+  border-color: #CACFD8;
 }
 header nav ul {
   border-color: #99a;
@@ -43,11 +54,11 @@ header nav a:link,header nav a:visited {
 }
 header nav a:hover {
   color: #445;
-  background-color: #eb6;
+  background-color: #d4f2e8;
 }
 header nav a:active {
   color: #667;
-  background-color: #ec8;
+  background-color: #d4f2e8;
 }
 article img {
   border-color: #ba9;
@@ -70,7 +81,7 @@ header nav a.here:active {
 }
 
 
-
+/* 
 th {
   color: #edc;
   background-color: #455;
@@ -86,7 +97,7 @@ tr.odd td {
 tr.highlight td {
   color: #223;
   background-color: #cba;
-}
+} */
 
 
 

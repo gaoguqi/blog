@@ -1,0 +1,7 @@
+table		{ border:0;border-collapse:collapse;margin: 1em 0%; }
+td	{ font:normal 12px/17px Arial;padding:2px;width:124px;}
+td.week	{ font:normal 12px/17px Arial;padding:2px;width:80px;}
+th			{ color:#445;font:bold 12px/17px Arial;text-align:left;padding:4px;border-bottom:1px solid #ffffff;}
+.even		{ background:#FFFFEE;color:#445;}  /* 偶数行样式background:#FFF38F;color:#FFFFEE;*/
+.odd		{ color:#445;}  /* 奇数行样式FF6500*/
+.selected		{ background:#a3e2c5;color:#445;}

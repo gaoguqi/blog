@@ -16,12 +16,12 @@ body {
   max-width: 70em;
 }
 header {
-  background-image: url(../images/gaotaolirui.jpg);
+  /* background-image: url(../images/gaotaolirui.jpg); */
   background-repeat: no-repeat;
   background-position: bottom right;
   border-width: .1em;
   border-style: solid;
-  border-bottom-width: 0;
+  border-bottom-width: 10;
 }
 header nav {
   background-image: url(../images/header navbar.gif);
@@ -128,6 +128,8 @@ label {
 fieldset {
   border: 0;
 }
+
+
 
 
 
