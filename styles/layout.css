@@ -9,7 +9,7 @@ section, header, article, nav {
 
 body {
   margin: 1em 15%;
-  background-image: url(../images/background.jpg);
+  /* background-image: url(../images/background.jpg); */
   background-attachment: fixed;
   background-position: top left;
   background-repeat: repeat-x;
