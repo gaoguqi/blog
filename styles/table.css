@@ -5,3 +5,42 @@ th			{ color:#445;font:bold 12px/17px Arial;text-align:left;padding:4px;border-b
 .even		{ background:#FFFFEE;color:#445;}  /* 偶数行样式background:#FFF38F;color:#FFFFEE;*/
 .odd		{ color:#445;}  /* 奇数行样式FF6500*/
 .selected		{ background:#a3e2c5;color:#445;}
+
+#footer{
+	margin:0 auto;
+	width:290px;
+	color:#666666;
+	padding:18px 0;
+	text-align: center;
+}
+
+header p.siteName{
+	margin-left:100px;
+	line-height:1;
+	font-size:300%;
+	float:left;
+	background:transparent;
+}
+
+a#logo{
+background:transparent;
+}
+.siteName a{
+	margin-right:20px;
+	height:70px;
+	padding-top:30px;
+	display:block;
+	color:#555;
+	/*text-shadow:0px 0px 3px #222;*/
+}
+
+.siteName a:hover{
+color:#777;
+}
+
+p.description{
+	font-size:112%;
+	padding:40px 0 40px 0;
+	margin: 0 0 1px 0;
+	
+}

@@ -1,7 +1,7 @@
 body {
   /* color: #fb5; #334*/
   color:#445;
-  background-color: #CACFD8;
+  background-color: none;
 }
 a:link {
     color:#445;
@@ -29,14 +29,14 @@ a:active {
   background-color: #ec8;
 }
 header {
-  color: #ec8;
+  /* color: #ec8;
   background-color: #334;
-  border-color: #667;
+  border-color: #667; */
 }
 header nav {
-  color: #455;
+  /* color: #455;
   background-color: #789;
-  border-color: #667;
+  border-color: #667; */
 }
 article {
   /*color: #223;
@@ -45,12 +45,12 @@ article {
   border-color: #CACFD8;
 }
 header nav ul {
-  border-color: #99a;
+  /* border-color: #99a; */
 }
 header nav a:link,header nav a:visited {
-  color: #eef;
+  color: #333;
   background-color: transparent;
-  border-color: #99a;
+ /*  border-color: #99a; */
 }
 header nav a:hover {
   color: #445;

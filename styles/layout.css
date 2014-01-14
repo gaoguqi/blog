@@ -20,15 +20,15 @@ header {
   background-repeat: no-repeat;
   background-position: bottom right;
   border-width: .1em;
-  border-style: solid;
+  border-style: none;
   border-bottom-width: 10;
 }
 header nav {
-  background-image: url(../images/header navbar.gif);
+  /* background-image: url(../images/header navbar.gif);
   background-position: bottom left;
-  background-repeat: repeat-x;
+  background-repeat: repeat-x; */
   border-width: .1em;
-  border-style: solid;
+  border-style: none;
   border-bottom-width: 0;
   border-top-width: 0;
   padding-left: 10%;
@@ -37,16 +37,20 @@ header nav ul {
   width: 100%;
   overflow: hidden;
   border-left-width: .1em;
-  border-left-style: solid;
+  border-left-style: none;
+  
 }
 header nav li {
   display: inline;
+  
 }
 header nav li a {
+	text-decoration:underline;
   display: block;
   float: left;
   padding: .5em 2em;
-  border-right: .1em solid;
+ /*   border-right: .1em solid; 
+   font-weight:900; */
 }
 article {
   border-width: .1em;
