@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<title>GAOGUQI WORK</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<link rel="stylesheet" media="screen" href="../../styles/basic.css" />
+
+<script src="../../scripts/jquery.js" type="text/javascript"></script>
+<script src="../../scripts/initial.js" type="text/javascript"></script>
+</head>
+<body>
+</head>
+<body>
+
+ <header>
+<nav>
+<ul>
+<li><a href = "../../index.html">HOME</a></li>
+<li><a href = "../work.html">WORK</a></li>
+<li><a href = "../economy.html">ECONOMY</a></li>
+<li><a href = "../study.html">STUDY</a></li>
+<li><a href = "../journal.html">JOURNAL</a></li>
+<!-- <li><a href = "../photos.html">PHOTOS</a></li> -->
+<li><a href = "../about.html">ABOUT ME</a></li>
+</ul>
+</nav>
+</header> 
+
+<article>
+<h1>2014年2月27日工作笔记</h1>
+<nav>
+<ul>
+<li><a href="#html">oracle数据库基本数据库对象</a></li>
+</ul>
+</nav>
+
+
+<section id="html">
+<p>
+<pre>
+从数据库用户的角度看，最近本的数据库对象是表，
+用户还可以通过创建同义词、视图、数据库链等数据
+库对象方便数据的查询和使用，通过创建表的索引，
+来提高查询执行的速度。
+oracle数据库对象是数据库逻辑结构的集合，最基本
+的数据库对象是表，其它还有序列、同义词、数据库
+链、视图、索引、存储过程、存储函数、包、触发器
+
+模式：是一个用户所建立的所有数据库对象的集合，
+并为这个用户所拥有。模式名=用户名，一一对应。
+模式可以用来组织数据库对象，这很类似于在操作
+系统中用目录来组织文件。
+数据库对象：
+table表
+sequence序列
+synonym同义词
+database link 数据库链
+view视图
+index索引
+procedure存储过程
+function存储函数
+package包
+trigger数据库触发器
+clueter聚集
+library外部过程库
+
+分布式数据库应用：
+snapshot快照
+snapshot log快照日志
+面向对象数据库应用：
+对象表
+对象类型
+对象视图
+
+非模式对象：是不属于某个模式的数据库对象
+directory目录
+profile资源限定文件
+role角色
+rollback segment回滚段
+tablespace表空间
+user用户
+
+在数据库中，每一个模式都有自己的名字空间，
+而在一个名字空间里，两个对象不能起相同的名字；
+名字空间：
+名字空间A:表，视图，序列，私用同义词，存储过程
+和函数，包，快照；
+B索引；
+C聚集；
+D触发器；
+E私用数据库链；
+
+非模式对象名字空间：
+F用户、角色；
+G公用同义词；
+H公用数据库链；
+I表空间；
+J回滚段；
+K资源限制文件；
+
+使用自己的模式对象，可以只写对象名；
+使用其他模式对象，模式名.对象名这样的形式。
+如果不写模式名，就认为是使用自己的对象。
+oracle是如何确定在sql语句中指定对象的呢？
+insert into dep values('D', '计算机系');
+根据对语句的分析，oracle确定dep可以是：
+自己模式下的表
+自己模式下的视图
+为表或视图起的私用同义词（别名）
+公用同义词
+
+oracle总是试图现在你的模式名字空间里解决对象的引用，
+如果找不到，才到模式之外去找。
+首先在自己的模式下1、包含表、试图及私用同义词的名字
+空间里定位dep，如果是同义词，oracle进一步定位同义词
+所代表的的对象。这个对象可能在你的模式里，可能在别
+的模式中，还可能在另一个数据库中。如果这个对象又是
+一个同义词，oracle继续定位这个同义词代表的对象。
+如果找到的对象类型不对，例如dep代表一个序列，会返回
+一个错误。如果找到了执行语句；如果没找到，继续查找
+包含公共同义词的名字空间。
+
+数据字典是oracle数据库自动生成并维护的一组表和视图，
+它存储oracle系统的活动信息和所有用户数据库定义的信息。
+用户只能读或者检索这组表和视图。
+任何数据库用户包括DBA都无法修改。
+数据字典的所有权属于SYS，存储于system表空间中。
+静态数据字典：
+用户访问数据字典时不会发生改变的：
+数据库中所有的表、聚集、索引、视图、同义词、序列、
+过程、函数、包和触发器等模式对象的定义；
+数据库中所有列的默认值和模式对象中的完整性约束；
+所有oracle用户信息以及他们所授权限和角色；
+为模式对象所分配的存储空间以及它们当前已使用的存储空间信息；
+数据库操作审核信息；
+其它数据库信息。
+1、前缀user_的数据字典视图，包含当前用户所拥有的
+全部对象信息，例如user_objects\user_tables\user_views
+
+<pre>
+</p>
+</section>
+</article>	
+
+</body>
+</html>
