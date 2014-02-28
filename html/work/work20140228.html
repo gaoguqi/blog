@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<title>GAOGUQI WORK</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<link rel="stylesheet" media="screen" href="../../styles/basic.css" />
+
+<script src="../../scripts/jquery.js" type="text/javascript"></script>
+<script src="../../scripts/initial.js" type="text/javascript"></script>
+</head>
+<body>
+</head>
+<body>
+
+ <header>
+<nav>
+<ul>
+<li><a href = "../../index.html">HOME</a></li>
+<li><a href = "../work.html">WORK</a></li>
+<li><a href = "../economy.html">ECONOMY</a></li>
+<li><a href = "../study.html">STUDY</a></li>
+<li><a href = "../journal.html">JOURNAL</a></li>
+<!-- <li><a href = "../photos.html">PHOTOS</a></li> -->
+<li><a href = "../about.html">ABOUT ME</a></li>
+</ul>
+</nav>
+</header> 
+
+<article>
+<h1>2014年2月28日工作笔记</h1>
+<nav>
+<ul>
+<li><a href="#html">mysql数据库常用命令</a></li>
+</ul>
+</nav>
+
+
+<section id="html">
+<p>
+<pre>
+密码123456abcd
+mysql -u root -p root账户登录数据库
+创建示例数据库：
+create database bank;
+创建用户gaotao并赋予bank数据库权限
+grant all privileges on bank.* to 'gaotao'@'localhost' identified by '123456'
+
+select now();返回当前日期与时间
+show tables查看有哪些表
+show databases查看有哪些数据库
+字符型数据
+数值型数据
+日期型数据
+固定长度字符串：使用空格向右填充，以保证占用同样的字节数；char(20)
+变长字符串字节数可变varchar(20)
+拉丁系语言，比如英语，包含了一系列字母，每个字母只需要一个字节来存储；
+而日语中文等，每隔字符的存储需要多个字节，这类字符集被称为多字符集。
+show character set;查看服务器所支持的字符集。如果Maxlen列大于一，即为多字符集。
+如果为数据列指定非默认的字符集，只需要在类型定义后加上系统支持的字符集名称。
+varchar(20) character set utf8
+如果要改变整个数据库的默认字符集：
+create database foreign_sales character set utf8;
+
+数值型数据
+Boolean 0否1是
+unsigned关键字以向服务器指定该列存储的数据大于0.
+tinyint
+smallint
+int
+bigint
+float(p,s)
+double(p,s)p表示精度：小数点左边到右边所允许的数字总位数
+有效位小数点右边所允许的数字位数
+
+时间数据：
+date yyyy-mm-dd
+datetime yyyy-mm-dd hh:mi:ss
+timestamp yyyy-mm-dd hh:mi:ss
+year yyyy
+time hhh:mi:ss
+只有符合指定的时间数据格式，mysql才会自动将字符串转换为日期类型
+或者显示指定字符串格式，
+update person
+set birth_date = str_to_date('DEC-21-1980', '%B-%D-%Y') where person_id = 1;
+
+在表中创建约束
+主键约束：
+constraint pk_person primary key (person_id) pk_person 约束名称 primary key 约束类型 
+检查约束：
+gender char(1) check (gender in('M', 'F'));值只能为M和F
+等价于gender enum('M', 'F');ENUM是mysql特有的字符数据类型
+desc person；查看person表的信息
+
+create table favorite_food (
+person_id smallint unsigned,
+food varchar(32),
+constraint pk_favorite_food primary key(person_id, food),
+constraint fk_fav_food_person_id foreign key (person_id) references person (person_id)
+);
+外键约束限制favorite_food表中的数据只能来源于person表中的person_id列
+
+数字型主键的生成机制：
+1、查看表中当前主键的最大值并加1；
+2、让数据库服务器自动提供
+alter table person modify person_id int unsigned auto_increment;
+更新语句：
+update person set fname='gaotao' where person_id='1';
+删除语句delete from person where...;
+
+删除表drop table person;
+
+
+<pre>
+</p>
+</section>
+</article>	
+
+</body>
+</html>
