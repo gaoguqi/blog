@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<title>GAOGUQI WORK</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<link rel="stylesheet" media="screen" href="../../styles/basic.css" />
+
+<script src="../../scripts/jquery.js" type="text/javascript"></script>
+<script src="../../scripts/initial.js" type="text/javascript"></script>
+</head>
+<body>
+</head>
+<body>
+
+ <header>
+<nav>
+<ul>
+<li><a href = "../../index.html">HOME</a></li>
+<li><a href = "../work.html">WORK</a></li>
+<li><a href = "../economy.html">ECONOMY</a></li>
+<li><a href = "../study.html">STUDY</a></li>
+<li><a href = "../journal.html">JOURNAL</a></li>
+<!-- <li><a href = "../photos.html">PHOTOS</a></li> -->
+<li><a href = "../about.html">ABOUT ME</a></li>
+</ul>
+</nav>
+</header> 
+
+<article>
+<h1>2014年3月03日工作笔记</h1>
+<nav>
+<ul>
+<li><a href="#html">pl/sql程序设计</a></li>
+</ul>
+</nav>
+
+
+<section id="html">
+<p>
+<pre>
+PL/SQL将过程化语言的数据处理能力与SQL的访问数据库能力很好的结合一起。
+PL/SQL是一种后台技术。定位不是用来编写面向用户界面的程序，它的输入输出
+是面向数据库；从数据库读取数据，在程序中进行处理，将处理结果写入数据库。
+对于SQL，Oracle必须在同一时间处理每一条SQL语句，在网络环境下意味做每一
+个独立的调用都必须被Oracle服务器处理，这就占用大量的服务器时间，同时导致
+网络拥挤。而PL/SQL是以整个语句块发给服务器，降低了网络拥堵。
+
+由于PLSQL分为数据库PLSQL和和工具PLSQL。对于客户端来说PLSQL可以嵌套到
+相应的工具中，客户端程序可以执行本地包含PLSQL部门，也可以向服务发SQL命令
+或激活服务器端PLSQL程序运行。
+
+构成PLSQL程序的基本单元如存储过程、存储函数、匿名块等都是一个个逻辑块。
+一个PLSQL程序块包含：
+1、说明部分：变量说明，游标说明，异常说明。被说明项如变量作用域仅限于本
+逻辑块。
+2、BEGIN END程序体：必选的可执行部分，说明部分和异常处理部分可选。程序
+主体中可包含DML语句、SELECT赋值语句、嵌套，但不能直接包含SELECT查询语句、
+DDL数据定义语句。
+3、从执行部分第一个语句开始，依程序流程执行。如果一切正常，块结束于执行部分；
+如果执行中出现异常，程序控制将转移到异常处理部分。异常处理完成后，块的执行
+也就结束。
+
+用户可以在PLSQL程序块的执行部分和异常处理部分嵌套字块。子块在包含它的代码段
+中扮演一条语句的角色。说明部分不能嵌套子块。在说明部分可以定义局部子程序，
+该类子程序只能在定义它的块中使用。
+
+变量常量说明：
+v_ename char(10);
+v_age integer;
+birthday date;
+emp_count smallint:=0;
+常量定义：
+credit_limit CONSTANT real:=5000.0;
+ 
+记录类型：
+TYPE EMP_REC_TYPE IS RECORD
+(emp_no char(3),
+emp_name varchar2(20),
+emp_age number(2));
+定义了记录类型，
+定义记录变量：emp_rec EMP_REC_TYPE;引用记录成员时，emp_rec.emp_no;
+索引表：
+与一维数组类似，但下表可正可负；
+TYPE name_array_type(索引表类型名称) is table of varchar2(10) 索引表元素的数据类型，
+index by binary_integer;索引表元素下标的数据类型。
+name_array name_array_type; 索引表变量。赋值语句：
+name_array(2):='SCOTT'
+
+定义一个变量时可以引用表中列的类型和结构：
+变量名 【模式名.】表名.列名% TYPE;
+v_ename emp.ename % TYPE;
+
+用户自定义记录类型以定义变量。
+记录型变量名 【模式名.】表名% ROWTYPE;
+记录各分量的名字就采用表的列名。
+
+运算符：
++ - * / **乘方
+字符表达式
+||把两个或者多个字符串连接在一起，从而形成一个新的字符串
+关系表达式：
+结果总是TURE FALSE <= != is null , like, in, between
+逻辑表达式：
+NOT OR AND
+
+变量赋值：
+：=
+select into
+交互式键盘输入：
+an_sal:=&sall;
+  an_name := '&namel';
+
+控制语句：
+IF 条件1 THEN 程序段1
+ELSIF 条件2 THEN 程序2
+ELSE 程序段3
+END IF;
+
+CASE语句：
+CASE 变量
+WHEN 值1 THEN 分支1；
+WHEN 值2 THEN 分支2；
+ELSE 分支 n;
+END CASE;
+
+循环语句：
+LOOP
+...
+EXIT [WHEN e];//执行到EXIT时，对WHEN逻辑表达式求真，
+如果为真就退出，否则继续执行后面的语句
+语句；
+END LOOP;
+
+WHILE循环语句：
+WHILE 循环条件 循环条件为真执行循环体；如果为假，循环结束。
+LOOP
+循环体
+END LOOP;
+
+declare
+i number:=0;
+begin
+while i<5
+loop
+dbms_output.put_line(i);
+i:=i+1;
+end loop;
+end;
+/
+
+FOR 循环语句：
+FOR 循环变量名 IN 集合
+LOOP
+循环体
+END LOOP;
+
+循环变量每取集合中一个值，执行一次循环体，循环变量不用定义，
+循环变量类型与集合的形式有关。
+for i in 1..10
+loop 
+dbms_output.put_line(i);
+end loop;
+/
+
+异常处理：
+
+异常处理将错误处理代码和一般执行代码分开。
+当程序出现异常时，程序控制会转移到异常处理部分。
+EXCEPTION
+WHEN 异常1 THEN
+处理程序段1
+WHEN 异常2 THEN
+处理程序段2
+WHEN OTHERS THEN
+处理程序段
+END;
+系统预定义异常:
+预定义好异常名，
+当出现某个错误时，系统自动抛出对应的异常
+
+用户自定义的异常：
+说明部分定义异常名；
+在执行部分的某个地方，一般是在条件字句中，写上抛出异常的语句RAISE
+DECLARE 
+EX1 EXCEPTION;
+BEGIN
+IF E THEN 
+RAISE EX1;
+...
+END;
+
+游标
+系统预定义游标，隐式游标，名字为SQL，主要是保存执行SQL语句的一些状态信息或统计信息。
+SQL%ROWCOUNT 该属性值为刚执行完的一条SQL语句处理了多少行记录。
+SQL%FOUND 返回一个逻辑值，刚执行的一条DML语句是否处理了记录，
+如果一条记录也没处理返回FALSE，否则返回TRUE。
+
+用户自定义游标：
+使用SELECT INTO语句可以将数据库中的数据读入到程序的变量中。
+但只能是单行数据，如果检索到多行数据，SLECT INTO 就会引发一个TOO_MANY_ROWS的异常。
+显式游标用来处理这个问题：先将SELECT语句的查询结果放到一个命名的工作区中，
+然后程序如同读顺序文件一样，从游标中逐行读取数据并加以处理。
+1、定义游标
+DECLARE
+CURSOR C1 IS SELECT ...;
+PLSQL的说明部分定义游标。
+2、打开游标
+OPEN C1;
+打开游标会执行游标定义中的SELECT 语句，游标定义时并不执行SELECT 语句。
+3、读游标数据
+FETCH C1 into [变量，记录];
+可以通过游标定义记录，rec c1%rowtype;
+4、关闭游标
+CLOSE C1;
+显式游标的统计信息：
+c1%COUNT:到目前为止，FETCH语句从C1中总共读出了多少个记录；
+C1%found 如果为真表示最后一次FETCH语句从C1中读到记录，如果为假，
+没有独到记录，说明游标区内容读完。
+FOR R IN C1
+LOOP
+END LOOP;
+循环处理，无须打开和关闭游标。
+
+带参数的游标：
+CURSOR C1(DEPNO CHAR(3)) IS 
+SELECT * FROM EMP WHERE DNO=DEPNO;
+OPEN C1('D01');
+<pre>
+</p>
+</section>
+</article>	
+
+</body>
+</html>
