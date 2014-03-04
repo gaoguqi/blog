@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<title>GAOGUQI WORK</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+<link rel="stylesheet" media="screen" href="../../styles/basic.css" />
+
+<script src="../../scripts/jquery.js" type="text/javascript"></script>
+<script src="../../scripts/initial.js" type="text/javascript"></script>
+</head>
+
+ <header>
+<nav>
+<ul>
+<li><a href = "../../index.html">HOME</a></li>
+<li><a href = "../work.html">WORK</a></li>
+<li><a href = "../economy.html">ECONOMY</a></li>
+<li><a href = "../study.html">STUDY</a></li>
+<li><a href = "../journal.html">JOURNAL</a></li>
+<!-- <li><a href = "../photos.html">PHOTOS</a></li> -->
+<li><a href = "../about.html">ABOUT ME</a></li>
+</ul>
+</nav>
+</header> 
+
+<article>
+<h1>2014年3月04日工作笔记</h1>
+<nav>
+<ul>
+<li><a href="#html">JQuery中的事件</a></li>
+</ul>
+</nav>
+
+
+<section id="html">
+<p>
+<pre>
+JavaScript和HTML之间的交互是通过用户和浏览器操作页面时引发的事件来处理的。
+当文档或者它的某些元素发生变化或操作时，浏览器会自动生成一个事件。例如当
+浏览器装载完一个文档后，会生成事件；当用户单击某个按钮时，也会生成事件。
+浏览器装载DOM，页面加载完成后，浏览器添加事件。
+js window.onload = function(){};
+jquery $(document).ready(function(){});
+简写方式：
+$(function(){});
+$().ready(function(){}); $()不带参数时，默认参数为document
+
+在文档装载完成后，如果为元素绑定事件来完成某些操作，则可以使用bind()方法
+来对匹配元素进行特定事件的绑定，
+bind(type [,data], fn);
+三个参数：
+type 事件类型 blur, focus, load, resize, scroll,unload, click, dblclick, 
+mousedown, mouseup,mousemove, mouseover, mouseout, mouseenter,mouseleave,
+ change, select, submit, keydown, keypress,keyup, error
+第二个参数为可选参数，作为event.data属性值传递给事件对象的额外数据。
+第三个参数fn表示绑定的处理函数
+$("#panel").bind("click", function(){$(this).next().show()});
+jquery中this与js中this都表示携带相应行为的DOM元素。为了使该DOM元素能够
+使用JQUERY中的方法，使用$(this)将其转换为jquery对象。
+
+<pre>
+</p>
+</section>
+</article>	
+
+</body>
+</html>
