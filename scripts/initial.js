@@ -5,7 +5,7 @@ $(function(){
 		var footer = $("<div id='footer'>All copyrights reserved by GaoGuqi.</div>");
 		$("body").append(footer);
 		
-		var header = $("<p class='siteName'><a href='http://www.gaoguqi.com' id='logo' title='TG AND LR'S BLOG'>高古奇的学习探索</a></p><p class='description'>增长经验，弥补不足，纠正习惯</p>");
+		var header = $("<p class='siteName'><a href='http://www.gaoguqi.com' id='logo' title='TG AND LR'S BLOG'>卫生经济管理</a></p><p class='description'>高古奇的学习探索</p>");
 		$("body header").prepend(header);
 		
   })
